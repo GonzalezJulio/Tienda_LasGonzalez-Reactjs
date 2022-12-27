@@ -9,10 +9,10 @@ const Navbar = () => {
             </div>
             <div className="headinf">
                 <div>
-                <button>Quienes Somos</button>
-                <button>Como Comprar</button>
-                <button>Productos</button>
-                <button>Contactos</button>
+                <button className="botones">Quienes Somos</button>
+                <button className="botones">Como Comprar</button>
+                <button className="botones">Productos</button>
+                <button className="botones">Contactos</button>
 
                 </div> 
                 <div>
