@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar.js';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer.js';
 import CardProducts from './components/CardProducts/CardProducts.js';
+import ShoppingCard from './components/ShoppingCard/ShoppingCard.js'
 
 function App () {
   return (
@@ -16,6 +17,9 @@ function App () {
       </header>
       <div>
           <CardProducts />
+      </div>
+      <div>
+        <ShoppingCard/>
       </div>
       
 
