@@ -1,10 +1,13 @@
-const CartWidget = () => {
+import './CartWidget.css';
+
+
+function CartWidget() {
     return (
-        <div className="carritocompras">
-            <img className='carrito' src='./assest/img/cart_widget.png' alt='Carrito' />
-            2
+        <div className="CartWidget">
+            <img src="../assest/img/cart.svg" alt='cart-widget' className='CartImg' />
+            0
         </div>
-    )
+    );
 }
 
 export default CartWidget

@@ -1,112 +1,133 @@
 const products = [
     {
-        "id": 1,
-        "nombre":"Vaso Unicornio",
-        "desc":"Vaso",
-        "precio":3400,
-        "img":"../assest/img/botellas_vasos.JPG",
-        "cantidad":1
+        id: '1',
+        name:'Vaso Unicornio',
+        category:'Vasos',
+        price: 3600,
+        img:'../assest/img/botellas_vasos.JPG',
+        stock:25,
+        description:'Vaso Unicornio',
     },
     {
-        "id": 2,
-        "nombre":"Set de Mate",
-        "desc":"Mate",
-        "precio":2590,
-        "img": "../assest/img/juego_de_mate.JPG",
-        "cantidad":1
+        id: '2',
+        name:'Set Mate',
+        category:'Set Mate',
+        price: 2590,
+        img: '../assest/img/juego_de_mate.JPG',
+        stock:10,
+        description:"Set Matero",
     },
     {
-        "id": 3,
-        "nombre":"Lapicera",
-        "desc":"Lapiceras",
-        "precio": 1800,
-        "img": "../assest/img/lapiceras.JPG",
-        "cantidad":1
+        id: '3',
+        name:'Lapiceras',
+        category:'Varios',
+        price: 1800,
+        img: '../assest/img/lapiceras.JPG',
+        stock:10,
+        description:'Lapiceras'
+        
     },
     {
-        "id":4,
-        "nombre": "Neceser",
-        "desc": "Neceser",
-        "precio":1500,
-        "img":"../assest/img/neceser.JPG",
-        "cantidad":1
+        id: '4',
+        name:'Neceser',
+        category:'Varios',
+        price: 2500,
+        img: '../assest/img/neceser.JPG',
+        stock:10,
+        description:'Nesecer de viaje'
+        
     },
     {
-        "id":5,
-        "nombre":"Mate Termico",
-        "desc":"Mate Termico",
-        "precio":4700,
-        "img": "../assest/img/mates_termicos.jpg",
-        "cantidad":1
+        id: '5',
+        name:'Mate Termico',
+        category:'Set Mate',
+        price: 4700,
+        img: '../assest/img/mate_termico.jpg',
+        stock:10,
+        description: 'Mate Termico',
+        
     },
     {
-        "id":6,
-        "nombre":"Vaso Tornasolado",
-        "desc":"Vaso Tornasolado",
-        "precio":4700,
-        "img": "../assest/img/vaso_compra.jpeg",
-        "cantidad":1
+        id: '6',
+        name:'Vaso Tornasolado',
+        category:'Vasos',
+        price: 4700,
+        img: '../assest/img/vaso_compra.jpeg',
+        stock:10,
+        description: 'Vaso Tornasolado de 900ml',
+        
     },
     {
-        "id":7,
-        "nombre":"Ceramica de Animales",
-        "desc":"Ceramica de Animales",
-        "precio":1780,
-        "img": "../assest/img/varios1.JPG",
-        "cantidad":1
+        id: '7',
+        name:'Ceramica de Animales',
+        category:'Varios',
+        price: 2380,
+        img: '../assest/img/varios1.JPG',
+        stock:10,
+        description: 'Ceramica de Animales',
+        
     },
     {
-        "id":8,
-        "nombre":"Juego de Mate",
-        "desc":"Juego de Mate",
-        "precio":3300,
-        "img":"../assest/img/juego_de_mate10.jpeg",
-        "cantidad":1
+        id: '8',
+        name:'Juego de Mate',
+        category:'Set Mate',
+        price: 3300,
+        img: '../assest/img/juego_de_mate10.jpeg',
+        stock:10,
+        description: 'Juego Matero'
+        
     },
     {
-        "id":9,
-        "nombre":"Set Matero",
-        "desc":"Set Matero",
-        "precio":3300,
-        "img": "../assest/img/juego_de_mate3.JPG",
-        "cantidad":1
+        id: '9',
+        name:'Set Matero',
+        category:'Set Matero',
+        price: 3300,
+        img: '../assest/img/juego_de_mate3.JPG',
+        stock:10,
+        description: 'Juego de Mate'
+        
     },
     {
-        "id":10,
-        "nombre":"Funda Sumergible",
-        "desc":"Funda Sumergible",
-        "precio":790,
-        "img": "../assest/img/varios7.JPG",
-        "cantidad":1
+        id: '10',
+        name:'Funda Sumergible',
+        category:'Varios',
+        price: 980,
+        img: '../assest/img/varios7.JPG',
+        stock:10,
+        description: 'Funda para Celulares'
+        
     },
     {
-        "id":11,
-        "nombre":"Botella Termica",
-        "desc":"Botella Termica",
-        "precio":4700,
-        "img": "../assest/img/botella_compra.jpeg",
-        "cantidad":1
+        id: '11',
+        name:'Botella Termica',
+        category:'Vasos',
+        price: 4700,
+        img: '../assest/img/botella_compra.jpeg',
+        stock:10,
+        description: 'Botella Termica con tapa inmantada'
+        
     },
     {
-        "id":12,
-        "nombre":"Juego de Cubierto",
-        "desc":"Juego de Cubierto",
-        "precio":890,
-        "img": "../assest/img/varios4.JPG",
-        "cantidad":1
+        id: '12',
+        name:'Juego de Cubierto',
+        category:'Varios',
+        price: 1250,
+        img: '../assest/img/varios4.JPG',
+        stock:10,
+        description: 'Juego de Cubiertos'
+        
     }
 ]
-
 export const getProducts = (categoryId) => {
     console.log(categoryId)
-    return new Promise ((resolve, reject) => {
+    return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(products)
         }, 500)
     })
 }
 
-export const getProdyctsByCategory = (categoryId) => {
+export const getProductsByCategory = (categoryId) => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(products.filter(prod => prod.category === categoryId))
@@ -115,8 +136,8 @@ export const getProdyctsByCategory = (categoryId) => {
 }
 
 export const getProductById = (id) => {
-    return new Proimise ((resolve) => {
-        set Timeout(() => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
             resolve(products.find(prod => prod.id === id))
         }, 500)
     })

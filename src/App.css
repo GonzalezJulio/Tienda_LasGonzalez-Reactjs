@@ -1,10 +1,16 @@
-
 .App {
   text-align: center;
-  background-color: #eab8e3 ;
 }
 
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 
+}
+
+.Titulo {
+  color: red
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -13,7 +19,7 @@
 }
 
 .App-header {
-  background-color:#f4f4f8 ;
+  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -27,39 +33,13 @@
   color: #61dafb;
 }
 
-.logolasgonzalez {
-  width: 360px;
-  height: 80px;
-  
-  
-}
-
-.headsup{
-  gap: 40px;
-}
-.headinf{
-  gap: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-
-}
-.carritocompras{
-  display:flex;
-  flex-wrap: wrap;
-}
-
-.botones{
-  float: left;
-  border-radius: 8px;
-  background-color: #f4f4f8;
-}
-.carrito {
-  width: 25px;
-  height: 25px;
-  
-
-  
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 
