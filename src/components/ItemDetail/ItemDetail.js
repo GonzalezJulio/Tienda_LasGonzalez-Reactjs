@@ -1,16 +1,16 @@
 import './ItemDetail.css'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { CartContext } from '../../Context/CartContext'
+import { NotificationContext } from '../../notification/NotificationCart'
 
 const InputCount = ({onConfirm, stock, initial= 1}) => {
     const [count, setCount] = useState(initial)
-
     const handleChange = (e) => {
         if(e.target.value <= stock) {
             setCount(e.target.value)
         }
     }
-
     return (
         <div>
             <input type='number' onChange={handleChange} value={count}/>
@@ -45,21 +45,28 @@ const ButtonCount = ({ onConfirm, stock, initial = 1 }) => {
 }
 
 
-const ItemDetail = ({ id, name, category, img, price, stock, description}) => {
-    const [inputType, setInputType] = useState('input')
+
+const ItemDetail = ({ id, name, category, img, price, stock, description }) => {
+    const [inputType, setInputType] = useState('button')
     const [quantity, setQuantity] = useState(0)
 
     const ItemCount = inputType === 'input' ? InputCount : ButtonCount
-
-    const handleOnAdd = (quantity) => {
+    
+    const { addItem, isInCart } = useContext(CartContext)
+    
+    const setNotification = useContext(NotificationContext)
+    
+    function handleOnAdd(quantity) {
         console.log('agregue al carrito: ', quantity)
 
         setQuantity(parseInt(quantity))
-    }
+        addItem({ id, name, price, quantity })
+        setNotification(`Se Agregaron ${quantity} unidades, del producto ${name}`)  
+    } 
 
     return (
         <article className="CardItem">
-            <button onClick={() => setInputType(inputType === 'input' ? 'button' : 'input')}>
+            <button onClick={() => setInputType(inputType === 'input' ? 'button' : 'input') } className="Option">
                 Cambiar contador
             </button>
             <header className="Header">
@@ -83,8 +90,8 @@ const ItemDetail = ({ id, name, category, img, price, stock, description}) => {
             </section>           
             <footer className='ItemFooter'>
                 {
-                    quantity > 0 ? (
-                        <Link to='/cart'>Terminar compra</Link>
+                    isInCart(id) ? (
+                        <Link to='/cart' className='Option'>Terminar compra</Link>
                     ) : (
                         <ItemCount stock={stock} onConfirm={handleOnAdd} />
                     )

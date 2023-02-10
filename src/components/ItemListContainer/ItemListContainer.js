@@ -1,9 +1,10 @@
 import './ItemListContainer.css'
 import { useState, useEffect } from 'react'
-import { getProducts, getProductsByCategory} from "../../asyncMock"
+/* import { getProducts, getProductsByCategory} from "../../asyncMock" */
 import ItemList from '../ItemList/ItemList'
-
+import { getDocs, collection, query, where } from 'firebase/firestore'
 import { useParams } from 'react-router-dom'
+import { db } from '../../Service/Firebase/firebaseConfig'
 
 const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([])
@@ -14,7 +15,7 @@ const ItemListContainer = ({ greeting }) => {
     useEffect(() => {
         const onResize = (event) => {
             console.log(event)
-            console.log('cambie tamaño de pantalla')
+            
         }
 
         const onResize2 = () => {
@@ -37,7 +38,26 @@ const ItemListContainer = ({ greeting }) => {
     useEffect(() => {
         setLoading(true)
         
-        const asyncFunction = categoryId ? getProductsByCategory : getProducts
+        const collectionRef = categoryId
+        ? query(collection(db, 'products'),where('category', '==', categoryId) )
+        : collection(db, 'products')
+        
+        getDocs(collectionRef).then(response => {
+            console.log(response)
+            const productsAdapted = response.docs.map(doc => {
+                const data = doc.data()
+                console.log(doc.id)
+                console.log(data)
+                return { id: doc.id, ...data}
+            })
+            setProducts(productsAdapted)
+        }).catch(error => {
+            console.log(error)
+        }).finally(() => {
+            setLoading(false)
+        })
+
+        /* const asyncFunction = categoryId ? getProductsByCategory : getProducts
 
         asyncFunction(categoryId).then(response => {
             setProducts(response)
@@ -45,7 +65,7 @@ const ItemListContainer = ({ greeting }) => {
             console.log(error)
         }).finally(() => {
             setLoading(false)
-        })          
+        })   */        
     }, [categoryId])
 
 
@@ -55,7 +75,7 @@ const ItemListContainer = ({ greeting }) => {
 
     return (
         <div className='ItemListContainer' onClick={() => console.log('hice click en itemlistcontainer')}>
-            <button onClick={(event) => console.log(event)}>Ver evento sintetico</button>
+            
             <h1>{greeting}</h1>
             <ItemList products={products} />
         </div>
