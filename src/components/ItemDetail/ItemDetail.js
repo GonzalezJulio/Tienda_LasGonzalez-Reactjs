@@ -97,7 +97,7 @@ const ItemDetail = ({ id, name, category, img, price, stock, description }) => {
                     )
                 }
             </footer>
-        </article>
+        </article> 
     )
 }
 

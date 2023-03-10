@@ -28,11 +28,7 @@ const ItemDetailContainer = ({ setCart }) => {
         }).finally(() => {
             setLoading(false)
         })
-        /* getProductById(productId).then(response => {
-            setProduct(response)
-        }).finally(() => {
-            setLoading(false)
-        }) */
+        
     }, [productId])
 
     if(loading) {

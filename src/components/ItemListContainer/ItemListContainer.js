@@ -1,6 +1,6 @@
 import './ItemListContainer.css'
 import { useState, useEffect } from 'react'
-/* import { getProducts, getProductsByCategory} from "../../asyncMock" */
+import { getProducts, getProductsByCategory} from "../../asyncMock"
 import ItemList from '../ItemList/ItemList'
 import { getDocs, collection, query, where } from 'firebase/firestore'
 import { useParams } from 'react-router-dom'
@@ -57,7 +57,7 @@ const ItemListContainer = ({ greeting }) => {
             setLoading(false)
         })
 
-        /* const asyncFunction = categoryId ? getProductsByCategory : getProducts
+        const asyncFunction = categoryId ? getProductsByCategory : getProducts
 
         asyncFunction(categoryId).then(response => {
             setProducts(response)
@@ -65,7 +65,7 @@ const ItemListContainer = ({ greeting }) => {
             console.log(error)
         }).finally(() => {
             setLoading(false)
-        })   */        
+        })  
     }, [categoryId])
 
 
