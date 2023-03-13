@@ -5,6 +5,11 @@ import { db } from "../../Service/firebase/firebaseConfig"
 
 import { useNavigate } from "react-router-dom"
 
+
+    
+
+
+
 const Checkout = () => {
     const [loading, setLoading] = useState(false)
     const [orderId, setOrderId] = useState('')
@@ -12,14 +17,14 @@ const Checkout = () => {
 
     const navigate = useNavigate()
 
-    const createOrder = async () => {
+    const createOrder = async ( ) => {
         setLoading(true)
         try {
             const objOrder = {
                 buyer: {
-                    name:'',
-                    phone:'',
-                    email:'',
+                    name: '',
+                    phone: '',
+                    email: ''
                 },
                 items: cart,
                 total
@@ -105,13 +110,8 @@ const Checkout = () => {
     return (
         <div>
             <h1>Checkout</h1>
-            <form> 
-                <label>Nombre<input type="text" name='name'/></label>
-                <label>Telefono<input type="text" name='phone'/></label>
-                <label>Email<input type="text" name='email'/></label>
-
-            <button onClick={createOrder}>Generar orden</button>
-            </form>
+             
+            <button onClick={createOrder}>Generar orden</button>              
         </div>
     )
 }

@@ -5,8 +5,9 @@ import ItemList from '../ItemList/ItemList'
 
 import { useParams } from 'react-router-dom'
 
-import { useAsync } from '../../Hook/useAsync'
-import { useTitle } from '../../Hook/useTitle'
+import { useAsync } from '../../Hooks/useAsync'
+import { useTitle } from '../../Hooks/useTitle'
+
 import { getProducts } from '../../Service/firebase/firestore/products'
 
 const ItemListContainer = ({ greeting }) => {

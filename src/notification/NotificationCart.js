@@ -19,7 +19,7 @@ const Notification = ({ message }) => {
   }
 export const NotificationContext = createContext()
 export const NotificationProvider = ({ children }) => {
-    const [message, setMessage] = useState('')
+    const [message] = useState('')
     
     const setNotification = (message) =>{
         toast.success('Se agregaron prodcutos al Carrito', {

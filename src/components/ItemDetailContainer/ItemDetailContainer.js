@@ -8,7 +8,7 @@ import { getDoc, doc } from 'firebase/firestore'
 import { useParams } from 'react-router-dom'
 import { db } from '../../Service/firebase/firebaseConfig'
 
-const ItemDetailContainer = () => {
+const ItemDetailContainer = ({ setCart }) => {
     const [product, setProduct] = useState({})
     const [loading, setLoading] = useState(true)
 
@@ -42,7 +42,7 @@ const ItemDetailContainer = () => {
     return(
         <div className='ItemDetailContainer' >
             <h1>Detalle {product.name}</h1>
-            <ItemDetail {...product} />
+            <ItemDetail {...product} setCart={setCart} />
         </div>
     )
 }
