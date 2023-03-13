@@ -1,4 +1,6 @@
 .CardItem {
+    display: flex;
+    flex-direction: column;
     width: 150px;
     padding: 30px;
     margin: 30px;

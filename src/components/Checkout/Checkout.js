@@ -1,7 +1,7 @@
 import { collection, query, where, documentId, getDocs, writeBatch, addDoc } from "firebase/firestore"
 import { useContext, useState } from "react"
 import { CartContext } from "../../Context/CartContext"
-import { db } from "../../Service/Firebase/firebaseConfig"
+import { db } from "../../Service/firebase/firebaseConfig"
 
 import { useNavigate } from "react-router-dom"
 
@@ -17,9 +17,9 @@ const Checkout = () => {
         try {
             const objOrder = {
                 buyer: {
-                    name: 'Sebastian Zuviria',
-                    phone: '123456789',
-                    email: 'contact@sebaz.io'
+                    name:'',
+                    phone:'',
+                    email:'',
                 },
                 items: cart,
                 total
@@ -105,7 +105,13 @@ const Checkout = () => {
     return (
         <div>
             <h1>Checkout</h1>
+            <form> 
+                <label>Nombre<input type="text" name='name'/></label>
+                <label>Telefono<input type="text" name='phone'/></label>
+                <label>Email<input type="text" name='email'/></label>
+
             <button onClick={createOrder}>Generar orden</button>
+            </form>
         </div>
     )
 }
