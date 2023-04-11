@@ -1,4 +1,4 @@
-const products = [
+/* const products = [
     {
         id: '1',
         name:'Vaso Unicornio',
@@ -141,4 +141,4 @@ export const getProductById = (id) => {
             resolve(products.find(prod => prod.id === id))
         }, 500)
     })
-}
+} */

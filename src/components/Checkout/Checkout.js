@@ -5,11 +5,6 @@ import { db } from "../../Service/firebase/firebaseConfig"
 
 import { useNavigate } from "react-router-dom"
 
-
-    
-
-
-
 const Checkout = () => {
     const [loading, setLoading] = useState(false)
     const [orderId, setOrderId] = useState('')
@@ -17,14 +12,14 @@ const Checkout = () => {
 
     const navigate = useNavigate()
 
-    const createOrder = async ( ) => {
+    const createOrder = async () => {
         setLoading(true)
         try {
             const objOrder = {
                 buyer: {
-                    name: '',
-                    phone: '',
-                    email: ''
+                    name: 'Sebastian Zuviria',
+                    phone: '123456789',
+                    email: 'contact@sebaz.io'
                 },
                 items: cart,
                 total
@@ -37,9 +32,9 @@ const Checkout = () => {
     
             const productsRef = query(collection(db, 'products'), where(documentId(), 'in', ids))
     
-           getDocs(productsRef).then(productsAddedToCartFromFirestore => {
+            // getDocs(productsRef).then(productsAddedToCartFromFirestore => {
     
-           }) 
+            // })
     
             const productsAddedToCartFromFirestore = await getDocs(productsRef)
             const { docs } = productsAddedToCartFromFirestore
@@ -97,6 +92,7 @@ const Checkout = () => {
         return (
             <div>
                 <h1>El Id de su compra es: {orderId}</h1>
+                <button onClick={'/'}></button>
             </div>
         )
     }
@@ -110,8 +106,7 @@ const Checkout = () => {
     return (
         <div>
             <h1>Checkout</h1>
-             
-            <button onClick={createOrder}>Generar orden</button>              
+            <button onClick={createOrder}>Generar orden</button>
         </div>
     )
 }
