@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom'
 import { useAsync } from '../../hooks/useAsync'
 import { useTitle } from '../../hooks/useTitle'
 
-import { getProducts } from '../../Service/firebase/firestore/products'
+import { getProducts } from '../../Service/Firebase/firestore/products'
 
 const ItemListContainer = ({ greeting }) => {
     useTitle('Todos los productos', [])
