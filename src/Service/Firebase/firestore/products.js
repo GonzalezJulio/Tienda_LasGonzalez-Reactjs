@@ -1,4 +1,3 @@
-
 import { getDocs, collection, query, where } from 'firebase/firestore'
 import { createAdaptedProductFromFirestore } from '../../../adapters/productAdapter'
 import { db } from '../firebaseConfig'
