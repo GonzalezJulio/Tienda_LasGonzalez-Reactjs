@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import ItemCount from '../ItemCount/ItemCount'
 import { Link } from 'react-router-dom'
 import { CartContext } from '../../Context/CartContext'
-import { NotificationContext } from '../../notification/NotificationService'
+import { NotificationContext } from '../../notification/NotificationCart'
 
 const ItemDetail = ({ id, name, category, img, price, stock, description}) => {
     const { addItem, isInCart } = useContext(CartContext)

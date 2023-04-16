@@ -18,11 +18,12 @@ const NavBar = () => {
           <NavLink to={`/category/Varios`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Varios</NavLink>
           <NavLink to={`/category/Set Mate`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Set Materos</NavLink>
         </div>
-        <CartWidget quantity={totalQuantity}/>
+        <CartWidget totalQuantity={totalQuantity}/>
     </nav>
   )
 }
 
 export default NavBar
+
 
 

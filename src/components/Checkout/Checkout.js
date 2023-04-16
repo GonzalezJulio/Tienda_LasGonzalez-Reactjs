@@ -92,7 +92,6 @@ const Checkout = () => {
         return (
             <div>
                 <h1>El Id de su compra es: {orderId}</h1>
-                <button onClick={'/'}></button>
             </div>
         )
     }
