@@ -2,12 +2,9 @@ import './ItemListContainer.css'
 
 
 import ItemList from '../ItemList/ItemList'
-
 import { useParams } from 'react-router-dom'
-
 import { useAsync } from '../../hooks/useAsync'
 import { useTitle } from '../../hooks/useTitle'
-
 import { getProducts } from '../../Service/Firebase/firestore/products'
 
 const ItemListContainer = ({ greeting }) => {
